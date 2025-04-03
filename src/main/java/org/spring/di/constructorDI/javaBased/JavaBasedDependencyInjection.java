@@ -12,7 +12,6 @@ public class JavaBasedDependencyInjection {
         //If you are not providing the required class type(ex = Student.class) than you
         //have to case it into the desired class.
         Student student = applicationContext.getBean("student", Student.class);
-
-        System.out.println(student.toString());
+        student.showDetails();
     }
 }
