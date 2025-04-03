@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <beans>
+        <bean name="users" class="org.spring.di.constructorDI.xmlBased.pojo.UserDetails">
+            <constructor-arg value="0014" name="id" type="int">
+
+            </constructor-arg>
+            <constructor-arg >
+                <map>
+<!--                    <entry key="FirstName" value="Amit">-->
+
+<!--                    </entry>-->
+<!--                    <entry key="MiddleName" value="Kumar">-->
+
+<!--                    </entry>-->
+<!--                    <entry key="LastName" value="Pandey">-->
+
+<!--                    </entry>-->
+                    <entry key="112" value="Amit">
+
+                    </entry>
+                    <entry key="234" value="Kumar">
+
+                    </entry>
+                    <entry key="3456" value="Pandey">
+
+                    </entry>
+                </map>
+
+            </constructor-arg>
+            <constructor-arg value="amit@1234.com" name="sghdfhgsaf" type="String">
+            <!--1.if i have written name="emails" but constructor arg = email them what will happpens
+            By default, the name attribute in <constructor-arg> is optional and is not strictly enforced by Spring. Spring will match the argument to the constructor parameter based on position or type (not the name attribute).
+            In this case, the value="amit@1234.com" would still be injected into the parameter email because Spring ignores the mismatch in the name attribute.-->
+            </constructor-arg>
+<!--            <constructor-arg ref="userAddress">-->
+<!--&lt;!&ndash;                Referencing the bean that will be initialized inside the User Details constructors&ndash;&gt;-->
+<!--&lt;!&ndash;                The ref attribute is used to define the reference of another object, &ndash;&gt;-->
+<!--&lt;!&ndash;                such way we are passing the dependent object as a constructor argument.&ndash;&gt;-->
+<!--            </constructor-arg>-->
+            <constructor-arg>
+                <list>
+                    <!--A list can contain multiple inner bean, ref, collection, or value elements.
+                    A list can also map to an array type; the necessary conversion is performed
+                    automatically.-->
+                    <value>9475</value>
+<!--                    we can use list tag for List and ArrayList both.-->
+<!--                    we can use value tag for both Integer,String both.-->
+                    <value>93984</value>
+                    <value>78756</value>
+                    <value>91756</value>
+                </list>
+            </constructor-arg>
+<!--            1.If you are pass more than one values of same type that it is good specify names-->
+<!--            to the argument.-->
+<!--            2.If you are specifying the type of value you are passing that it is necessary to-->
+<!--            be same as the type of variable in java class of which you are creating the bean.-->
+<!--            3.Constructor argument must be a equal to constructor you have defined in java class.-->
+            <constructor-arg name="listOfAddress">
+                <!--                Passing list if objects in  constructor arguments-->
+                <list>
+                    <ref bean="userAddress"/>
+                    <ref bean="userAddress"/>
+                    <!--                    <ref bean="userAddress"/>-->
+                    <!--                    <ref bean="userAddress"/>-->
+                </list>
+            </constructor-arg>
+        </bean>
+        <bean name="userAddress" class="org.spring.di.constructorDI.xmlBased.pojo.Address">
+            <constructor-arg value="Kanahai" name="village" type="String">
+<!--                <value>Kanahai</value>-->
+<!--                we can use tag also-->
+            </constructor-arg>
+            <constructor-arg value="Gurugram" name="district" type="String">
+
+            </constructor-arg>
+            <constructor-arg value="Haryana" name="state" type="String">
+
+            </constructor-arg>
+            <constructor-arg value="India" name="country" type="String">
+
+            </constructor-arg>
+            <constructor-arg value="122003" name="pinCode" type="String">
+            </constructor-arg>
+        </bean>
+    </beans>
+</beans>
