@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean name="userDtl" class="org.spring.di.pojo.UserDetail">
+        <property name="userId" value="034727">
+<!--            The name property, such as name="userId",
+        must be the same as the property of the class to which you are assigning the value of it.-->
+        </property>
+        <property name="userName" value="Amit Kumar Pandey">
+
+        </property>
+        <property name="userEmail" value="amit@gmail.com">
+
+        </property>
+        <property name="listOfMobileNumber">
+            <list>
+                <value>94758737</value>
+                <value>94758737</value>
+                <value>94758737</value>
+            </list>
+        </property>
+<!--        <property name="listOfAddress">-->
+<!--            <map>-->
+<!--&lt;!&ndash;                <entry key="Permanent Address" value="Village/Town Churihari, District: Siddharth Nagar, State: Uttar Pradesh, Country: India, Pin Code: 272207.">&ndash;&gt;-->
+<!--&lt;!&ndash;                </entry>&ndash;&gt;-->
+<!--&lt;!&ndash;                <entry key="Current Address" value="Village/Town: Kanahai, District: Gurugram, State: Haryana, Country: India, Pin Code: 122003.">&ndash;&gt;-->
+<!--&lt;!&ndash;                </entry>&ndash;&gt;-->
+<!--                <entry key="Permanent Address">-->
+<!--                    <map>-->
+<!--                        <entry key="Village/Town" value="Churihari">-->
+
+<!--                        </entry>-->
+<!--                        <entry key="District" value="Siddharth Nagar">-->
+
+<!--                        </entry>-->
+<!--                        <entry key="State" value="Uttar Pradesh">-->
+
+<!--                        </entry>-->
+<!--                        <entry key="Country" value="India">-->
+
+<!--                        </entry>-->
+<!--                        <entry key="Pin Code" value="272207">-->
+
+<!--                        </entry>-->
+<!--                    </map>-->
+<!--                </entry>-->
+
+<!--                <entry key="Current Address">-->
+<!--                    <map>-->
+<!--                        <entry key="Village/Town" value="Kanahai Sector 45">-->
+
+<!--                        </entry>-->
+<!--                        <entry key="District" value="Gurugram">-->
+
+<!--                        </entry>-->
+<!--                        <entry key="State" value="Haryana">-->
+
+<!--                        </entry>-->
+<!--                        <entry key="Country" value="India">-->
+
+<!--                        </entry>-->
+<!--                        <entry key="Pin Code" value="122003">-->
+
+<!--                        </entry>-->
+<!--                    </map>-->
+<!--                </entry>-->
+<!--            </map>-->
+<!--        </property>-->
+        <property name="listOfAddress">
+            <map>
+                <entry key="Permanent Address" value-ref="permanentAddress"></entry>
+                <entry key="Current Address" value-ref="currentAddress"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean name="permanentAddress" class="org.spring.di.pojo.Address">
+        <property name="village" value="Churihari">
+
+        </property>
+        <property name="district" value="Siddharth Nagar">
+
+        </property>
+        <property name="state" value="Uttar Pradesh">
+
+        </property>
+        <property name="country" value="India">
+
+        </property>
+        <property name="pinCode" value="272207">
+
+        </property>
+    </bean>
+    <bean name="currentAddress" class="org.spring.di.pojo.Address">
+        <property name="village" value="Kanahai">
+
+        </property>
+        <property name="district" value="Gurugram">
+
+        </property>
+        <property name="state" value="Haryana">
+
+        </property>
+        <property name="country" value="India">
+
+        </property>
+        <property name="pinCode" value="122003">
+
+        </property>
+    </bean>
+</beans>

@@ -1,5 +1,6 @@
 package org.spring.di.constructorDI.javaBased.pojo;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,9 +9,11 @@ public class Student {
     private String studentName;
     private List<Integer> studentBookId;
     //private Map<String,String> studentAddress;
-    private  Map<String,Map<String,String>> studentAddress;
+    //private  Map<String,Map<String,String>> studentAddress;
+//    private StudentAddress studentAddress;
+    private Map<String,StudentAddress> studentAddress = new HashMap<>();
 
-    public Student(int studentId, String studentName,List<Integer> studentBookId,Map<String,Map<String,String>> studentAddress) {
+    public Student(int studentId, String studentName,List<Integer> studentBookId,Map<String,StudentAddress> studentAddress) {
         this.studentId = studentId;
         this.studentName = studentName;
         this.studentBookId = studentBookId;
@@ -34,12 +37,16 @@ public class Student {
 //            System.out.println(address.getKey() + "---->: "+address.getValue());
 //        }
 
-        for(Map.Entry<String,Map<String,String>> addresses: studentAddress.entrySet()){
-            System.out.print(addresses.getKey() + "---->: ");
-            for (Map.Entry<String,String> address : addresses.getValue().entrySet()){
-                System.out.print(address.getKey() + ": " + address.getValue() + " ");
-            }
-            System.out.println();
+//        for(Map.Entry<String,Map<String,String>> addresses: studentAddress.entrySet()){
+//            System.out.print(addresses.getKey() + "---->: ");
+//            for (Map.Entry<String,String> address : addresses.getValue().entrySet()){
+//                System.out.print(address.getKey() + ": " + address.getValue() + " ");
+//            }
+//            System.out.println();
+//        }
+//        System.out.println("Student Address: "+studentAddress.toString());
+        for(Map.Entry<String,StudentAddress> studentAddress : studentAddress.entrySet()){
+            System.out.println(studentAddress.getKey() + " --->: " +studentAddress.getValue().toString());
         }
     }
 }

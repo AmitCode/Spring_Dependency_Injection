@@ -1,7 +1,7 @@
 package org.spring.di.constructorDI.javaBased.config;
 
 import org.spring.di.constructorDI.javaBased.pojo.Student;
-import org.spring.di.constructorDI.xmlBased.pojo.UserDetails;
+import org.spring.di.constructorDI.javaBased.pojo.StudentAddress;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -22,21 +22,28 @@ public class AppConfig {
         bookIds.add(9378);
         bookIds.add(45468);
         bookIds.add(90820);
-        Map<String,String> studentAddress = new HashMap<>();
-        Map<String,Map<String,String>> studentAddresses = new HashMap<>();
-        studentAddress.put("Village/Town","Churihari");
-        studentAddress.put("District","Siddharth Nagar");
-        studentAddress.put("State","Uttar Pradesh");
-        studentAddress.put("Country","India");
-        studentAddress.put("Pin Code","272207");
-        studentAddresses.put("Permanent Addesss",studentAddress);
-        Map<String,String> studentAddress1 = new HashMap<>();
-        studentAddress1.put("Village/Town","Kanahai");
-        studentAddress1.put("District","Gurugram");
-        studentAddress1.put("State","Haryana");
-        studentAddress1.put("Country","India");
-        studentAddress1.put("Pin Code","122003");
-        studentAddresses.put("Current Address",studentAddress1);
+//        Map<String,String> studentAddress = new HashMap<>();
+        Map<String,StudentAddress> studentAddresses = new HashMap<>();
+//        studentAddress.put("Village/Town","Churihari");
+//        studentAddress.put("District","Siddharth Nagar");
+//        studentAddress.put("State","Uttar Pradesh");
+//        studentAddress.put("Country","India");
+//        studentAddress.put("Pin Code","272207");
+//        studentAddresses.put("Permanent Addesss",studentAddress);
+//        Map<String,String> studentAddress1 = new HashMap<>();
+//        studentAddress1.put("Village/Town","Kanahai");
+//        studentAddress1.put("District","Gurugram");
+//        studentAddress1.put("State","Haryana");
+//        studentAddress1.put("Country","India");
+//        studentAddress1.put("Pin Code","122003");
+//        studentAddresses.put("Current Address",studentAddress1);
+        studentAddresses.put("Permanent Addesss",new StudentAddress("Churihari","Siddharth Nagar",
+                "Uttar Pradesh","India","272207"));
+
+        studentAddresses.put("Current Address",new StudentAddress("Kanahai","Gurugram Nagar",
+                "Haryana","India","122003"));
+        StudentAddress studentAddress = new StudentAddress("Churihari","Siddharth Nagar",
+                "Uttar Pradesh","India","272207");
         return new Student(0014,"Amit Kumar Pandey",bookIds,studentAddresses);
     }
 
